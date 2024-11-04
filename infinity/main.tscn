@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://djvbjnl255xe"]
+[gd_scene load_steps=6 format=3 uid="uid://djvbjnl255xe"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_fie8u"]
 [ext_resource type="PackedScene" uid="uid://d2xnmrabr3lhd" path="res://player.tscn" id="1_gmyx4"]
 [ext_resource type="PackedScene" uid="uid://c6sj162x4dqja" path="res://mob.tscn" id="2_yns0j"]
+[ext_resource type="Texture2D" uid="uid://cmoijqk6r1arp" path="res://infinite_symb-removebg-preview.png" id="4_2aewh"]
 
 [sub_resource type="Curve2D" id="Curve2D_ghf1m"]
 _data = {
@@ -25,6 +26,9 @@ one_shot = true
 position = Vector2(640, 360)
 
 [node name="Player" parent="." instance=ExtResource("1_gmyx4")]
+z_index = 1
+collision_layer = 4
+collision_mask = 3
 
 [node name="MobPath" type="Path2D" parent="."]
 curve = SubResource("Curve2D_ghf1m")
@@ -32,6 +36,22 @@ curve = SubResource("Curve2D_ghf1m")
 [node name="MobSpawnLocation" type="PathFollow2D" parent="MobPath"]
 position = Vector2(0, 3)
 rotation = -0.00234741
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(642, 358)
+collision_mask = 4
+metadata/_edit_lock_ = true
+
+[node name="InfiniteSymb-removebg-preview" type="Sprite2D" parent="Area2D"]
+position = Vector2(7.62939e-06, 1.52588e-05)
+scale = Vector2(1.45556, 1.43056)
+texture = ExtResource("4_2aewh")
+metadata/_edit_lock_ = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+build_mode = 1
+polygon = PackedVector2Array(-221, 45, -229, -25, -176, -84, -98, -95, -37, -57, 3, -18, 73, -82, 141, -98, 199, -73, 236, -26, 238, 33, 208, 87, 133, 114, 71, 99, 1, 38, -77, 102, -153, 113, -210, 72)
+metadata/_edit_lock_ = true
 
 [connection signal="timeout" from="MobTimer" to="." method="_on_mob_timer_timeout"]
 [connection signal="timeout" from="StartTimer" to="." method="_on_start_timer_timeout"]
