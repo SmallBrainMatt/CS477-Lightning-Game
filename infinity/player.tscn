@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://d2xnmrabr3lhd"]
+
+[ext_resource type="Script" path="res://player.gd" id="1_dr7eq"]
+[ext_resource type="Texture2D" uid="uid://d2x1uncgiy3k4" path="res://player-temp.jpg" id="2_fcngs"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_njjgm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_fcngs")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_y2hfd"]
+radius = 14.1421
+
+[node name="Player" type="Area2D"]
+script = ExtResource("1_dr7eq")
+metadata/_edit_group_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.05, 0.05)
+sprite_frames = SubResource("SpriteFrames_njjgm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_y2hfd")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
