@@ -6,9 +6,10 @@ var spawn_wait_time = 2
 var speed_range_min = 150
 var speed_range_max = 250
 
-func game_over():
-	$HUD.show_game_over()
-	$MobTimer.stop()
+#func game_over():
+#	print("game_over() function called in main.gd")
+#	$HUD.show_game_over()
+#	$MobTimer.stop()
 
 #Begins the game
 func new_game():

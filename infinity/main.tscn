@@ -58,6 +58,12 @@ wait_time = 2.0
 
 [node name="HUD" parent="." instance=ExtResource("5_8wl2t")]
 
+[node name="ProgressBar" type="ProgressBar" parent="HUD"]
+offset_left = 434.0
+offset_top = 27.0
+offset_right = 825.0
+offset_bottom = 54.0
+
 [connection signal="timeout" from="MobTimer" to="." method="_on_mob_timer_timeout"]
 [connection signal="timeout" from="StartTimer" to="." method="_on_start_timer_timeout"]
 [connection signal="hit" from="Player" to="." method="game_over"]
