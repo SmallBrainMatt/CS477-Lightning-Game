@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://c6sj162x4dqja"]
+[gd_scene load_steps=6 format=3 uid="uid://c6sj162x4dqja"]
 
 [ext_resource type="Texture2D" uid="uid://sk3snfq6tyeb" path="res://mob-temp.png" id="1_amp00"]
 [ext_resource type="Script" path="res://mob.gd" id="1_y4h7h"]
+[ext_resource type="Texture2D" uid="uid://ij5vvdq1nujh" path="res://light.png" id="3_ptlvd"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_5exnt"]
 animations = [{
@@ -17,7 +18,7 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rsee7"]
 size = Vector2(34, 34)
 
-[node name="Mob" type="RigidBody2D"]
+[node name="Mob" type="RigidBody2D" groups=["mobs"]]
 collision_layer = 3
 collision_mask = 8
 gravity_scale = 0.0
@@ -43,5 +44,9 @@ collision_mask = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 visibility_layer = 0
 shape = SubResource("RectangleShape2D_rsee7")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+color = Color(1, 0, 0, 1)
+texture = ExtResource("3_ptlvd")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

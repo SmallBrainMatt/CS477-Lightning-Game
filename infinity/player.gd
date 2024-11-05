@@ -58,6 +58,7 @@ func start(pos):
 
 #Shoot the gun
 func fire():
+	$Pew.play()
 	var bullet_instance = bullet.instantiate()
 	bullet_instance.rotation_degrees = rotation_degrees
 	bullet_instance.position = get_global_position()

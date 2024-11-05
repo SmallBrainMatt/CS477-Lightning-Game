@@ -7,6 +7,7 @@ var speed_range_min = 150
 var speed_range_max = 250
 
 func game_over():
+	#$Hud.show_game_over()
 	$MobTimer.stop()
 
 #Begins the game
@@ -14,6 +15,7 @@ func new_game():
 	score = 0
 	$Player.start($StartPosition.position)
 	$StartTimer.start()
+	get_tree().call_group("mobs", "queue_free")
 
 #Begin the mob timer
 func _on_start_timer_timeout():
