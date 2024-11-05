@@ -7,7 +7,7 @@ var speed_range_min = 150
 var speed_range_max = 250
 
 func game_over():
-	#$Hud.show_game_over()
+	$HUD.show_game_over()
 	$MobTimer.stop()
 
 #Begins the game
@@ -16,6 +16,7 @@ func new_game():
 	$Player.start($StartPosition.position)
 	$StartTimer.start()
 	get_tree().call_group("mobs", "queue_free")
+	$HUD.show_message("Get Ready")
 
 #Begin the mob timer
 func _on_start_timer_timeout():
@@ -42,12 +43,13 @@ func _on_mob_timer_timeout():
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	new_game() # Replace with function body.
+	pass
+	#new_game() # Replace with function body.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+#func _process(delta: float) -> void:
+#	pass
 
 
 func _on_spawn_increase_timer_timeout() -> void:
