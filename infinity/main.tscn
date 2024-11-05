@@ -55,13 +55,6 @@ metadata/_edit_lock_ = true
 [node name="SpawnIncreaseTimer" type="Timer" parent="."]
 wait_time = 2.0
 
-[node name="Ground" type="Area2D" parent="."]
-position = Vector2(232, 110)
-collision_layer = 0
-collision_mask = 0
-
-[node name="Sprite2D" type="Sprite2D" parent="Ground"]
-
 [connection signal="timeout" from="MobTimer" to="." method="_on_mob_timer_timeout"]
 [connection signal="timeout" from="StartTimer" to="." method="_on_start_timer_timeout"]
 [connection signal="hit" from="Player" to="." method="game_over"]
