@@ -59,7 +59,6 @@ func start(pos):
 #Shoot the gun
 func fire():
 	var bullet_instance = bullet.instantiate()
-	bullet_instance.name = "Bullet"
 	bullet_instance.rotation_degrees = rotation_degrees
 	bullet_instance.position = get_global_position()
 	bullet_instance.linear_velocity = Vector2(bullet_speed,0).rotated(rotation)

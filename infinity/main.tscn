@@ -28,7 +28,6 @@ position = Vector2(640, 360)
 [node name="Player" parent="." instance=ExtResource("1_gmyx4")]
 z_index = 1
 collision_layer = 4
-collision_mask = 3
 
 [node name="MobPath" type="Path2D" parent="."]
 curve = SubResource("Curve2D_ghf1m")
@@ -53,6 +52,10 @@ build_mode = 1
 polygon = PackedVector2Array(-221, 45, -229, -25, -176, -84, -98, -95, -37, -57, 3, -18, 73, -82, 141, -98, 199, -73, 236, -26, 238, 33, 208, 87, 133, 114, 71, 99, 1, 38, -77, 102, -153, 113, -210, 72)
 metadata/_edit_lock_ = true
 
+[node name="SpawnIncreaseTimer" type="Timer" parent="."]
+wait_time = 2.0
+
 [connection signal="timeout" from="MobTimer" to="." method="_on_mob_timer_timeout"]
 [connection signal="timeout" from="StartTimer" to="." method="_on_start_timer_timeout"]
 [connection signal="hit" from="Player" to="." method="game_over"]
+[connection signal="timeout" from="SpawnIncreaseTimer" to="." method="_on_spawn_increase_timer_timeout"]

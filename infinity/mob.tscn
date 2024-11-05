@@ -15,17 +15,17 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rsee7"]
-size = Vector2(26, 26)
+size = Vector2(34, 34)
 
 [node name="Mob" type="RigidBody2D"]
 collision_layer = 3
-collision_mask = 0
+collision_mask = 8
 gravity_scale = 0.0
 script = ExtResource("1_y4h7h")
 metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-scale = Vector2(0.1, 0.1)
+scale = Vector2(0.15, 0.15)
 sprite_frames = SubResource("SpriteFrames_5exnt")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

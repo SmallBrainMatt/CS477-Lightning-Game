@@ -2,6 +2,9 @@ extends Node
 
 @export var mob_scene: PackedScene
 var score
+var spawn_wait_time = 2
+var speed_range_min = 150
+var speed_range_max = 250
 
 func game_over():
 	$MobTimer.stop()
@@ -30,7 +33,7 @@ func _on_mob_timer_timeout():
 	direction += randf_range(-PI / 4, PI / 4)
 	mob.rotation = direction
 
-	var velocity = Vector2(randf_range(150.0, 250.0), 0.0)
+	var velocity = Vector2(randf_range(speed_range_min, speed_range_max), 0.0)
 	mob.linear_velocity = velocity.rotated(direction)
 
 	add_child(mob)
@@ -43,3 +46,10 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
+
+
+func _on_spawn_increase_timer_timeout() -> void:
+	if speed_range_min < 500:
+		speed_range_min += 20
+	if speed_range_max < 700:
+		speed_range_max += 20
