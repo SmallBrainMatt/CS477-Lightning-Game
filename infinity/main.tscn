@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://djvbjnl255xe"]
+[gd_scene load_steps=8 format=3 uid="uid://djvbjnl255xe"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_fie8u"]
 [ext_resource type="PackedScene" uid="uid://d2xnmrabr3lhd" path="res://player.tscn" id="1_gmyx4"]
 [ext_resource type="PackedScene" uid="uid://c6sj162x4dqja" path="res://mob.tscn" id="2_yns0j"]
 [ext_resource type="Texture2D" uid="uid://cmoijqk6r1arp" path="res://infinite_symb-removebg-preview.png" id="4_2aewh"]
 [ext_resource type="PackedScene" uid="uid://c0ecljwtmugp7" path="res://hud.tscn" id="5_8wl2t"]
+[ext_resource type="AudioStream" uid="uid://b22pqhux68v7k" path="res://music_zapsplat_easy_cheesy.mp3" id="6_rgod1"]
 
 [sub_resource type="Curve2D" id="Curve2D_ghf1m"]
 _data = {
@@ -72,6 +73,11 @@ offset_bottom = 713.0
 action_mode = 0
 text = "Click here to go 
 back to start"
+
+[node name="bg_music" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_rgod1")
+volume_db = -15.151
+autoplay = true
 
 [connection signal="timeout" from="MobTimer" to="." method="_on_mob_timer_timeout"]
 [connection signal="timeout" from="StartTimer" to="." method="_on_start_timer_timeout"]
