@@ -64,8 +64,18 @@ offset_top = 27.0
 offset_right = 825.0
 offset_bottom = 54.0
 
+[node name="BackToStartButton" type="Button" parent="HUD"]
+offset_left = 1067.0
+offset_top = 568.0
+offset_right = 1280.0
+offset_bottom = 713.0
+action_mode = 0
+text = "Click here to go 
+back to start"
+
 [connection signal="timeout" from="MobTimer" to="." method="_on_mob_timer_timeout"]
 [connection signal="timeout" from="StartTimer" to="." method="_on_start_timer_timeout"]
 [connection signal="hit" from="Player" to="." method="game_over"]
 [connection signal="timeout" from="SpawnIncreaseTimer" to="." method="_on_spawn_increase_timer_timeout"]
 [connection signal="start_game" from="HUD" to="." method="new_game"]
+[connection signal="pressed" from="HUD/BackToStartButton" to="." method="_on_back_to_start_button_pressed"]
